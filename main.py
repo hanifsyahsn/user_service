@@ -156,7 +156,7 @@ class UsersHandler(BaseHandler):
             name = str(name)
             if name == "":
                 return None, "Name cannot be empty"
-            if re.search(r'[\d\W]',name):
+            if re.search(r'[\d\W]',name.replace(" ", "")):
                 return None, "Name cannot be filled with number or symbol"
             return name, None
         except Exception as e:
